@@ -51,7 +51,8 @@ Use Curl
    {"mode":1}
 
    ## update
-   $ curl http://127.0.0.1:3000/api/status -D - -X POST --data '{"mode": 2}' -H "Content-HTTP/1.1 200 OK
+   $ curl http://127.0.0.1:3000/api/status -D - -X POST --data '{"mode": 2}' -H "Content-type: application/json"
+   HTTP/1.1 200 OK
    X-Powered-By: Express
    Content-Type: application/json; charset=utf-8
    Content-Length: 10
