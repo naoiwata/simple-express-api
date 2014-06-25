@@ -29,7 +29,6 @@ Use Curl
     
    ## create <status>.json includes {<key>: <value>}
    $ curl http://127.0.0.1:3000/api/status -D - -X POST --data '{"mode": 1}' -H "Content-type: application/json"
-   t-type: application/json"
    HTTP/1.1 200 OK
    X-Powered-By: Express
    Content-Type: application/json; charset=utf-8
