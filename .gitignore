@@ -1,0 +1,16 @@
+/node_modules/
+/bower_components/
+/.sass-cache/
+/work/
+/dist/
+/vendor/
+*.log
+*.bat
+*.cmd
+*.swp
+*.sh
+*.ini
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+/data/*.json
