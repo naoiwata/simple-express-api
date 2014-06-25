@@ -70,7 +70,7 @@ Use Curl
    Date: Wed, 25 Jun 2014 09:36:11 GMT
    Connection: keep-alive
 
-   {"mode":2,"guest":true}%
+   {"mode":2,"guest":true}
 
    ## delete key to <status>.json
    $ curl http://127.0.0.1:3000/api/status/mode -D - -X DELETE
