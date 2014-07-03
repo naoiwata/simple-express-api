@@ -26,6 +26,8 @@ app.get '/api/:key', (req, res) ->
     else
       res.type('application/json')
       res.json(data)
+  , (err) ->
+    res.send(err)
   return
 
  
@@ -43,6 +45,8 @@ app.post '/api/:key', (req, res, next) ->
       res.json(resBody)
     , (err) ->
       res.send(err)
+  , (err) ->
+    res.send(err)
   return
 
 
@@ -61,6 +65,8 @@ app.delete '/api/:key/:json_key', (req, res, next) ->
       res.json(resBody)
     , (err) ->
       res.send(err)
+  , (err) ->
+    res.send(err)
   return
 
 
@@ -70,13 +76,9 @@ readModel = (key) ->
   fileName = DATA_PATH + key + '.json'
   fs.readFile fileName, 'utf8', (err, data) ->
     if err
-      resBody = null
-    try
-      resBody = JSON.parse(data)
-    catch e
-      console.warn e
-      resBody = null
-    dfd.resolve(resBody)
+      return dfd.reject('I/O ERROR')
+    resBody = JSON.parse(data)
+    return dfd.resolve(resBody)
   return dfd.promise
 
 
@@ -86,7 +88,7 @@ writeModel = (key, data) ->
   fs.writeFile fileName, data, 'utf8', (err) ->
     if err
       return dfd.reject('I/O ERROR')
-    dfd.resolve(data)
+    return dfd.resolve(data)
   return dfd.promise
 
 
