@@ -30,7 +30,7 @@ app.get '/api/:key', (req, res) ->
     res.send(err)
   return
 
- 
+
 app.post '/api/:key', (req, res, next) ->
   key = req.params.key
   if not _.isObject(req.body) then return res.send('INVALID DATA')
